@@ -17,8 +17,14 @@ class MenuCard extends Component {
         let cart = null;
         if (this.state.showCart) {
         cart = (
-            <div className="cart">
-                <p>total: 10.000</p>
+            <div className="cart d-flex justify-content-between">
+                <div class="m-2 text-start">
+                    <p class="m-0">Rp 35,000</p>
+                    <p class="m-0 fs-7">Termasuk ongkos kirim</p>
+                </div>
+                <div>
+                    <span class="material-icons white m-3">shopping_cart</span>
+                </div>
             </div>
             );
         }

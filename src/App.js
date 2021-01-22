@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import LDbar from './components/LDbar';

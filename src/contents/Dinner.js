@@ -4,7 +4,7 @@ import MenuCard from '../components/MenuCard';
 class Dinner extends Component {
     render() {
         return (
-            <div class="container-fluid" style={{"marginTop": "150px"}}>
+            <div class="container-fluid" style={{"marginTop": "180px"}}>
                 <div>
                     <h1>Dinner</h1>
                 </div>
