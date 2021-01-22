@@ -80,3 +80,11 @@ a:hover {
   transition: top 0.3s;
   top: 140px;
 }
+
+.cart {
+  width: 100%;
+  text-align: center;
+  background-color: #a23530;
+  border-radius: 10px;
+  color: #f1f1f2;
+}

@@ -4,8 +4,6 @@ import Navbar from './components/Navbar';
 import LDbar from './components/LDbar';
 import Lunch from './contents/Lunch';
 import Dinner from './contents/Dinner';
-import Calendar from './components/Calendar';
-
 
 function App() {
   return (
