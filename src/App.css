@@ -42,3 +42,36 @@ a:hover {
   padding-bottom: 0;
   background-color: #f9423a;
 }
+
+.modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.modal-content {
+  height: auto;
+  overflow-y: auto;
+}
+
+.modal-body {
+  padding: 15px 15px;
+}
+
+.modal.bottom.fade .modal-dialog {
+  bottom: -100%;
+  -webkit-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+  transition: opacity 0.3s linear, bottom 0.3s ease-out;
+}
+
+.modal.bottom.fade.show .modal-dialog {
+  bottom: 0;
+}
+
+.modal.bottom.fade .modal-dialog {
+  bottom: -100%;
+}
