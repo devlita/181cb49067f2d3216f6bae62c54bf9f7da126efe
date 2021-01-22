@@ -4,11 +4,15 @@ import MenuCard from '../components/MenuCard';
 class Lunch extends Component {
     render() {
         return (
-            <div>
+            <div class="container-fluid" style={{"marginTop": "150px"}}>
                 <div>
                     <h1>Lunch</h1>
                 </div>
                 <div class="d-flex flex-wrap justify-content-center">
+                    <MenuCard />
+                    <MenuCard />
+                    <MenuCard />
+                    <MenuCard />
                     <MenuCard />
                     <MenuCard />
                     <MenuCard />

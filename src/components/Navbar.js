@@ -1,11 +1,12 @@
 import '../App.css';
 import React, { Component } from 'react';
+import Calendar from './Calendar';
 
 class Navbar extends Component {
     render() {
         return (
             <div>
-                <nav className="p-2 navbar-light bg-light">
+                <nav className="p-2 navbar-light bg-light fixed-top">
                     <div class="navbar-brand d-flex" href="#">
                         <span class="material-icons">arrow_back</span>
                         <div>
@@ -21,6 +22,7 @@ class Navbar extends Component {
                             </button>
                         </div>
                     </div>
+                    <Calendar />
                 </nav>
                 <div class="modal bottom fade" id="bottom_modal" tabindex="-1" role="dialog" aria-labelledby="bottom_modal">
                     <div class="modal-dialog" role="document">

@@ -75,3 +75,8 @@ a:hover {
 .modal.bottom.fade .modal-dialog {
   bottom: -100%;
 }
+
+#LDbar {
+  transition: top 0.3s;
+  top: 50;
+}
