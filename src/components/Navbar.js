@@ -1,44 +1,55 @@
 import '../App.css';
 import React, { Component } from 'react';
+import styled, { TextSub } from './styled';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import CloseIcon from '@material-ui/icons/Close';
+
+import Mapbar from './Mapbar';
 import Calendar from './Calendar';
 
-class Navbar extends Component {
+class Navbar extends Component {    
     render() {
         return (
             <div>
-                <nav className="p-2 navbar-light bg-light fixed-top">
-                    <div class="navbar-brand d-flex" href="#">
-                        <span class="material-icons">arrow_back</span>
+                <Topbar>
+                    <div className="top">
                         <div>
-                            <p class="fs-7 text-muted">ALAMAT PENGANTARAN</p>
-                            <button 
-                                type="button" 
-                                class="btn border-0 .bg-transparent fs-6" 
-                                data-toggle="modal" 
-                                data-target="#bottom_modal"
-                            >
-                                Tokopedia Tower 
-                                <span class="material-icons redL">expand_more</span>
-                            </button>
+                            <IconButton aria-label="arrow_back">
+                                <ArrowBackIcon className="black"/>
+                            </IconButton>
+                        </div>
+                        <div>
+                            <TextSub>ALAMAT PENGANTARAN</TextSub>
+                            <div>
+                                <p>Location</p>
+                                <Button 
+                                    data-toggle="modal" 
+                                    data-target="#bottom_modal"
+                                >
+                                    <KeyboardArrowDownIcon className="redL"/>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                     <Calendar />
-                </nav>
-                <div class="modal bottom fade" id="bottom_modal" tabindex="-1" role="dialog" aria-labelledby="bottom_modal">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="m-2 d-flex justify-content-end">
-                                <button type="button" class="btn close" data-dismiss="modal" aria-label="Close" >
-                                    <span aria-hidden="true">&times;</span>
-                                </button>    
+                </Topbar>
+                <Calendar />
+                <div className="modal bottom fade" id="bottom_modal" tabindex="-1" role="dialog" aria-labelledby="bottom_modal">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="d-flex justify-content-end">
+                                <IconButton data-dismiss="modal" aria-label="Close" >
+                                    <CloseIcon fontSize="small" className="black"/>
+                                </IconButton>    
                             </div>
-                            <div class="modal-header">
-                                <h5 class="modal-title">Cek makanan yang tersedia di lokasi kamu!</h5>
+                            <div className="modal-header">
+                                <h5 className="modal-title">Cek makanan yang tersedia di lokasi kamu!</h5>
                             </div>
-                            <div class="modal-body">
-                                <div>
-                                Kulina
-                                </div>
+                            <div className="modal-body">
+                                <Mapbar />
                             </div>
                         </div>
                     </div>
@@ -47,5 +58,35 @@ class Navbar extends Component {
             )
         }
     }
-    
+
+const Topbar = styled.nav`
+    background-color: #f9f9f9;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    .top{
+        display: flex;
+        align-items: center;
+        > div:first-child {
+            width: auto;
+        }
+        > div:last-child {
+            width: 100%;
+            padding-top: 0.5rem;
+            >div {
+                display: flex;
+                align-items: center;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+        }
+        .black {
+            color: var(--textMain);
+        }
+        .redL {
+            color: var(--redL);
+        }
+    }
+`;
+
 export default Navbar

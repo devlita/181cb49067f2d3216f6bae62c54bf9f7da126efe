@@ -1,5 +1,12 @@
-import '../App.css';
 import React, { Component } from 'react'
+import styled, { TextSub } from './styled';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+
+import StarIcon from '@material-ui/icons/Star';
+import StarHalfIcon from '@material-ui/icons/StarHalf';
+import AddIcon from '@material-ui/icons/Add';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 class MenuCard extends Component {
     state = {
@@ -15,53 +22,112 @@ class MenuCard extends Component {
 
     render() {
         let cart = null;
+
         if (this.state.showCart) {
         cart = (
-            <div className="cart d-flex justify-content-between">
-                <div class="m-2 text-start">
-                    <p class="m-0">Rp 35,000</p>
-                    <p class="m-0 fs-7">Termasuk ongkos kirim</p>
+            <div className="mb-2 cart d-flex justify-content-between">
+                <div className="m-2 text-start">
+                    <p className="m-0">Rp 35,000</p>
+                    <p className="m-0 fs-7">Termasuk ongkos kirim</p>
                 </div>
-                <div>
-                    <span class="material-icons white m-3">shopping_cart</span>
-                </div>
+                <CartButton>
+                    <ShoppingCartIcon />
+                </CartButton>
             </div>
             );
         }
-        
+
         return (
             <div>
-                <div class="card m-3 rounded-4 border-0 shadow" style={{"width": "18rem"}}>
-                    <img src="https://i.postimg.cc/43Xg6Ht7/lunch1.jpg" class="roundedtop" style={{"width": "18rem"}}/>
-                    <div class="card-body">
-                        <div class="card-text">
-                            <div class="d-flex flex-row">
-                                <p class="fs-6 muted">4.5</p>
-                                <span class="material-icons md-16 redL mt-1">star</span>
-                                <span class="material-icons md-16 redL mt-1">star</span>
-                                <span class="material-icons md-16 redL mt-1">star</span>
-                                <span class="material-icons md-16 redL mt-1">star</span>
-                                <span class="material-icons md-16 redL mt-1">star_half</span>
+                <Menu>
+                    <div className="card-image">
+                        <img 
+                            src="https://i.postimg.cc/43Xg6Ht7/lunch1.jpg" 
+                            alt="roasted chicken"
+                        />
+                    </div>
+                    <div className="card-body">
+                        <div className="body-desc">
+                            <div className="rating">
+                                <p>4.5</p>
+                                <Star>
+                                    <StarIcon fontSize="small" />
+                                    <StarIcon fontSize="small"/>
+                                    <StarIcon fontSize="small"/>
+                                    <StarIcon fontSize="small"/>
+                                    <StarHalfIcon fontSize="small"/>
+                                </Star>
                             </div>
-                            <p class="fs-6">Roasted Chicken with Scrambled Egg</p>
-                            <p class="fs-7">by Kulina . Uptown Lunch</p>
+                            <div className="desc">
+                                <p>Roasted Chicken with Scrambled Egg</p>
+                                <TextSub>by Kulina . Uptown Lunch</TextSub>
+                            </div>
                         </div>
-                        <div class="d-flex justify-content-between">
+                        <div className="body-price">
                             <p>Rp 35.000</p>
-                            <button
-                                class="btn btn-danger d-flex"
+                            <AddButton 
+                                fontSize="small"
                                 onClick={this.toggleCartHandler}
                             >
                                 ADD
-                                <span class="material-icons">add</span>
-                            </button>
+                                <AddIcon size="small"/>
+                            </AddButton>
                         </div>
                     </div>
-                </div>
+                </Menu>
                 <div class="fixed-bottom mx-2">{cart}</div>
             </div>
         )
     }
 }
+
+const Menu = styled.div`
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    margin: 1rem;
+    width: 18rem;
+    overflow: hidden;
+    .card-image {
+        width: 18rem;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .card-body {
+        padding: 1rem;
+        font-weight: 600;
+        .body-desc {
+            .rating {
+                display: flex;
+                p {
+                    padding-right: 0.5rem;
+                    color: var(--textSub);
+                }
+            }
+        }
+        .body-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+`;
+
+const Star = styled.div`
+    color: var(--redL);
+`;
+
+const AddButton = styled(Button)`
+    background: var(--redL) !important;
+    color: white !important;
+    padding: 0.5rem;
+`;
+
+const CartButton = styled(IconButton)`
+    color: white !important;
+    padding: 0.5rem;
+`;
 
 export default MenuCard

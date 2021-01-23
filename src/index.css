@@ -1,6 +1,18 @@
+:root {
+  --main-font: -apple-system, BlinkMacSystemFont, 'Montserrat', 'Roboto', 'Open Sans',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  --redL: #f9423a;
+  --redD: #a23530;
+  --textMain: #424749;
+  --textSub: #6e7679;
+  --border: #f1f1f2;
+  --shadow: 0 8px 10px rgba(10, 31, 68, .1);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +22,40 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: var(--textMain);
+  background-color: transparent;
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.App {
+  position: relative;
+}
+
+.app-bar, .app-body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+}
+
+.app-bar {
+  z-index: 5;
+}
+
+.app-body {
+  overflow: auto;
 }
